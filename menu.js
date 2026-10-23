@@ -63,10 +63,21 @@
             html += '<div class="notice"><strong>' + text(a.title) + "</strong><div>" + text(a.message) + "</div></div>";
         });
 
+        // Bill campaigns: "5.000 ₺ ve üzeri hesaba %10 indirim", "3 al 2 öde"
+        (menu.campaigns || []).forEach(function (c) {
+            html += '<div class="deal' + (c.activeNow ? " is-active" : "") + '">' +
+                '<span class="deal-percent">★</span>' +
+                "<div><strong>" + text(c.name) + '</strong><div class="muted">' + text(c.description) +
+                (c.activeNow ? " · <b>Şu an geçerli</b>" : "") + "</div></div></div>";
+        });
+
         (menu.deals || []).forEach(function (d) {
-            var where = d.category ? text(d.category) : "Tüm menü";
+            var where = d.productName ? text(d.productName) : d.category ? text(d.category) : "Tüm menü";
+            var badge = d.discountAmount > 0
+                ? "-" + Number(d.discountAmount).toLocaleString("tr-TR") + " ₺"
+                : "%" + Number(d.discountPercent).toLocaleString("tr-TR");
             html += '<div class="deal' + (d.activeNow ? " is-active" : "") + '">' +
-                '<span class="deal-percent">%' + Number(d.discountPercent).toLocaleString("tr-TR") + "</span>" +
+                '<span class="deal-percent">' + badge + "</span>" +
                 "<div><strong>" + text(d.name) + "</strong><div class=\"muted\">" + where + " · " +
                 dealDays(d.days) + " " + hhmm(d.startTime) + "-" + hhmm(d.endTime) +
                 (d.activeNow ? " · <b>Şu an geçerli</b>" : "") + "</div></div></div>";
