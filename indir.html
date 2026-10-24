@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Uygulamayı İndir · GoldPlus</title>
+    <meta name="description" content="GoldPlus müşteri uygulamasını Android telefonuna indir.">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top">
+        <div class="top-inner">
+            <a class="brand" href="index.html"><img src="logo.svg" alt=""><span class="brand-text">Gold<b>Plus</b></span></a>
+            <nav><a href="index.html">Ana sayfa</a><a href="menu.html">Menü</a><a href="indir.html" aria-current="page">İndir</a><a href="gizlilik.html">Gizlilik</a><a href="hesap-silme.html">Hesap silme</a></nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="logo.svg" alt="GoldPlus logosu">
+        <h1>GoldPlus'ı indir</h1>
+        <p>Masadan sipariş ver, her harcamanda puan kazan, hoş geldin hediyeni seç.</p>
+        <p style="margin-top:22px"><a class="button" id="download" href="https://github.com/Emre2026/goldplus/releases/latest/download/GoldPlus-Musteri.apk">Android için indir</a></p>
+        <p class="small" style="margin-top:10px">Ücretsiz · Android 7 ve üzeri</p>
+    </section>
+
+    <main>
+        <div class="box" id="iphone" hidden>
+            <strong>iPhone kullanıyorsan:</strong> GoldPlus şimdilik sadece Android'de var.
+            Menüye ve kampanyalara <a href="menu.html">web menüsünden</a> bakabilir, siparişini garsona verebilirsin.
+        </div>
+
+        <h2>Nasıl kurulur?</h2>
+        <ol class="steps">
+            <li>Yukarıdaki <strong>Android için indir</strong> düğmesine dokun. Dosya birkaç saniyede iner.</li>
+            <li>İnen dosyaya dokun (bildirimlerde ya da İndirilenler klasöründe görünür).</li>
+            <li>Telefon "<em>Bu kaynaktan uygulama yüklenmesine izin ver</em>" derse <strong>Ayarlar</strong>'a dokun, izni aç ve geri dön.</li>
+            <li><strong>Yükle</strong>'ye dokun. "Uygulama tanınmıyor" uyarısı çıkarsa <strong>Ayrıntılar → Yine de yükle</strong>'yi seç.
+                Uygulama henüz Google Play'de olmadığı için bu uyarı normal.</li>
+            <li>Uygulamayı aç, Google hesabınla giriş yap ve masandaki QR kodu okut.</li>
+        </ol>
+
+        <div class="box">
+            Uygulama kısa süre içinde Google Play'de de olacak. O zaman güncellemeler kendiliğinden gelecek.
+        </div>
+
+        <h2>Uygulamada neler var?</h2>
+        <ul>
+            <li>Masandaki QR'ı okut, menüden sipariş ver, hesabını anlık takip et</li>
+            <li>Her harcamada XP ve puan; puanlarınla ücretsiz içecek ve indirim kuponu</li>
+            <li>Günlük çark, rozetler, doğum günü hediyesi ve arkadaş davet ödülü</li>
+            <li>Kafenin Wi-Fi'sine tek dokunuşla bağlanma</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>GoldPlus, Gold Karaca kafesinin müşteri uygulamasıdır. İletişim: <a href="mailto:adildemir2620@gmail.com">adildemir2620@gmail.com</a></p>
+        <p><a href="gizlilik.html">Gizlilik politikası</a> · <a href="hesap-silme.html">Hesap silme</a></p>
+    </footer>
+
+    <script>
+        // iPhone and iPad cannot install the Android app; they are pointed to the web menu instead
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            document.getElementById("iphone").hidden = false;
+            var link = document.getElementById("download");
+            link.textContent = "Web menüsüne git";
+            link.href = "menu.html";
+        }
+    </script>
+</body>
+</html>

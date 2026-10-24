@@ -357,3 +357,11 @@ button.button { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
     .app-cta { flex-direction: column; align-items: stretch; text-align: left; }
     .app-cta .button { text-align: center; }
 }
+
+.button.is-ghost {
+    background: transparent;
+    color: var(--gold-light);
+    border: 2px solid var(--gold);
+}
+
+.hero .small { color: #c9ccd6; font-size: 0.85rem; }
